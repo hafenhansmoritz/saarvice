@@ -1341,46 +1341,17 @@ Anforderungen:
             </div>
           </div>
 
-          <!-- Dual Lead-Gen Box: Native Fast-Unlock + Official Substack Embed -->
+          <!-- Substack als einfacher Link: keine E-Mail-Eingabe, kein Embed (Datenschutz) -->
           <div style="background: #141311; border: 2px solid var(--c-gold); border-radius: 12px; padding: 1.5rem; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
-            <span class="case-study-card__tag" style="margin-bottom: 0.6rem;">✉️ DIREKTE SUBSTACK LEAD-GENERATION</span>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.4rem;">Kostenlos auf Substack abonnieren &amp; Operator-Kompendium freischalten</h3>
+            <span class="case-study-card__tag" style="margin-bottom: 0.6rem;">✉️ PROMPTGOTT AUF SUBSTACK</span>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.4rem;">Kostenlos auf Substack mitlesen &amp; Operator-Kompendium laden</h3>
             <p style="font-size: 0.85rem; opacity: 0.84; margin-bottom: 1rem;">
-              Trag deine E-Mail ein — du wirst direkt bei <strong>promptgott.substack.com</strong> angemeldet und schaltest sofort alle 14 System-Blueprints als Download frei:
+              Die Anmeldung läuft direkt bei <strong>promptgott.substack.com</strong> (öffnet sich in einem neuen Tab). Das Kompendium mit allen 14 Kapiteln kannst du hier ohne Anmeldung herunterladen:
             </p>
-
-            <form id="promptgott-form" action="https://promptgott.substack.com/subscribe" method="get" target="_blank" novalidate>
-              <input type="hidden" name="utm_source" value="saarvice_jean_hub">
-              <input type="hidden" name="utm_medium" value="lead_form">
-              <label for="pg-email" style="display:block; font-size:0.8rem; font-weight:700; color:var(--c-gold); margin-bottom:0.35rem;">Deine E-Mail-Adresse für den Operator-Verteiler</label>
-              <input type="email" id="pg-email" name="email" required placeholder="dein-name@domain.de" style="width:100%; padding:0.75rem 0.9rem; background:#0b0a08; border:1px solid var(--c-border); border-radius:6px; color:var(--c-text); margin-bottom:0.85rem; font-size:0.95rem;">
-
-              <span style="display:block; font-size:0.76rem; font-weight:700; color:var(--c-gold); margin-bottom:0.4rem;">Welche Machine-Module baust du gerade?</span>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; margin-bottom:1rem; font-size:0.8rem;">
-                <label class="sge-check-item"><input type="checkbox" checked> Programmatic SEO</label>
-                <label class="sge-check-item"><input type="checkbox" checked> AI Content Factory</label>
-                <label class="sge-check-item"><input type="checkbox" checked> FAQ- &amp; PAA-Reaktor</label>
-                <label class="sge-check-item"><input type="checkbox" checked> Merchant Brain / EPC</label>
-              </div>
-
-              <button type="submit" class="btn btn-primary" style="width:100%; margin-bottom: 0.65rem;">
-                ⚡ Auf Substack abonnieren &amp; 14-Kapitel-Playbook freischalten →
-              </button>
-            </form>
-
-            <div id="promptgott-success" hidden style="margin: 0.85rem 0; padding: 1rem; background: rgba(16, 163, 127, 0.16); border: 1px solid #6ee7b7; border-radius: 8px;">
-              <strong style="color: #6ee7b7; display: block; margin-bottom: 0.35rem;">🎉 Stark! Substack-Anmeldung geöffnet &amp; Operator-Tresor entsperrt!</strong>
-              <p style="font-size: 0.83rem; margin-bottom: 0.65rem;">Bestätige kurz im Substack-Tab deine Mail — und lade dir hier sofort das komplette <strong>Programmatic Revenue Machine Kompendium (alle 14 Kapitel + 73 Machine Notes)</strong> herunter:</p>
-              <div class="llm-btn-row">
-                <button type="button" id="pg-download-deck" class="llm-btn llm-btn--copy">📥 Komplettes 14-Kapitel-Playbook (.md) herunterladen</button>
-                <a href="https://promptgott.substack.com/archive" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt">📚 Substack-Archiv öffnen ↗</a>
-              </div>
-            </div>
-
-            <!-- Official Substack Embed Widget -->
-            <div style="margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--c-border);">
-              <span style="display: block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(246,241,230,0.65); margin-bottom: 0.45rem;">Offizielles Substack Direct-Embed (promptgott.substack.com/embed):</span>
-              <iframe src="https://promptgott.substack.com/embed" width="100%" height="150" style="border: 1px solid rgba(227, 178, 60, 0.4); background: #0d0c0a; border-radius: 8px;" frameborder="0" scrolling="no" loading="lazy" title="PROMPTGOTT Substack Newsletter Anmeldung"></iframe>
+            <div class="llm-btn-row">
+              <a href="https://promptgott.substack.com/subscribe?utm_source=saarvice_jean_hub&amp;utm_medium=link" target="_blank" rel="noopener" class="btn btn-primary">⚡ Auf Substack abonnieren ↗</a>
+              <button type="button" id="pg-download-deck" class="llm-btn llm-btn--copy">📥 Komplettes 14-Kapitel-Playbook (.md) herunterladen</button>
+              <a href="https://promptgott.substack.com/archive" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt">📚 Substack-Archiv öffnen ↗</a>
             </div>
           </div>
         </div>

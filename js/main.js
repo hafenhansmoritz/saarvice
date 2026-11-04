@@ -167,23 +167,14 @@
   function initForm() {
     var form = $('waitlist-form');
     if (!form) return;
+    // Mit JS prüft validate() mit eigenen Meldungen; ohne JS greift die native Browser-Prüfung
+    // (required an E-Mail und Einwilligung), deshalb steht novalidate nicht im HTML.
+    form.noValidate = true;
 
     var successBox = $('waitlist-success');
-    var numberBadge = $('success-number-badge');
-    var numberText = $('member-number-text');
     var formError = $('form-error');
     var submitBtn = $('submit-waitlist-btn');
-    var whatsapp = $('whatsapp-optin');
-    var phoneGroup = $('phone-group');
-    var phone = $('phone');
-
-    if (whatsapp && phoneGroup && phone) {
-      whatsapp.addEventListener('change', function () {
-        phoneGroup.hidden = !whatsapp.checked;
-        phone.required = whatsapp.checked;
-        if (!whatsapp.checked) setFieldError('phone', null);
-      });
-    }
+    var submitLabel = submitBtn ? submitBtn.textContent : '';
 
     function setFieldError(field, message) {
       var input = $(field);
@@ -220,13 +211,6 @@
         setFieldError('privacy', null);
       }
 
-      if (whatsapp && whatsapp.checked && phone && phone.value.trim().length < 6) {
-        setFieldError('phone', 'Für WhatsApp brauchen wir die Nummer.');
-        ok = false;
-      } else {
-        setFieldError('phone', null);
-      }
-
       return ok;
     }
 
@@ -236,14 +220,25 @@
       formError.hidden = false;
     }
 
+    function showSuccess() {
+      form.hidden = true;
+      show(successBox);
+      if (successBox && !reduceMotion) {
+        successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    // Anmeldung läuft über Brevo (Liste "SAARVICE Gemeinde", Double-Opt-in).
+    // Die Action-URL steht im action-Attribut des Formulars. Ohne JS schickt der
+    // Browser das Formular ganz normal in einem neuen Tab ab.
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       hide(formError);
 
       // Honeypot gefüllt = Bot. Erfolg vortäuschen, nichts senden.
-      if ($('website') && $('website').value) {
-        form.hidden = true;
-        show(successBox);
+      var hp = $('email_address_check');
+      if (hp && hp.value) {
+        showSuccess();
         return;
       }
 
@@ -253,79 +248,17 @@
         return;
       }
 
-      if (!CFG.signupEndpoint) {
-        // Lokaler Vorab-/Demo-Pass-Modus (#073): Vergibt sofort deinen personalisierten
-        // Stammtisch-Pass (#SV-2026-XXXX) im Browser und schaltet den 3D-Pass frei!
-        var customNameEl = $('member-custom-name');
-        var customName = (customNameEl && customNameEl.value.trim()) ? customNameEl.value.trim() : 'Ehren-Saarlänner';
-        var demoCode = 'SV-' + (1000 + Math.floor(Math.random() * 8999));
-        try {
-          localStorage.setItem('saarvice_member_code', demoCode);
-          localStorage.setItem('saarvice_member_name', customName);
-        } catch (err) {}
-
-        form.hidden = true;
+      // Normal an Brevo abschicken (target=_blank): Brevos Antwortseite zeigt im neuen Tab,
+      // ob die Anmeldung angenommen wurde. Ein fetch mit no-cors könnte Ablehnungen nicht
+      // erkennen. Das Formular bleibt sichtbar, damit man es bei einem Fehler erneut versuchen kann.
+      try {
+        form.submit();
         show(successBox);
-        if (numberBadge && numberText) {
-          numberBadge.textContent = '#' + demoCode;
-          show(numberBadge);
-          show(numberText);
-        }
-        var walletNum = $('wallet-member-num');
-        var walletHolder = $('wallet-member-holder');
-        var refInput = $('referral-link-input');
-        if (walletNum) walletNum.textContent = '#' + demoCode;
-        if (walletHolder) walletHolder.textContent = 'Inhaber: ' + customName;
-        if (refInput) refInput.value = 'https://schwenken.saarvice.online/?ref=' + demoCode;
-        SoundEngine.playGrubenHorn();
-        if (successBox && !reduceMotion) {
-          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        return;
+      } catch (err) {
+        fail('Das hat grad nicht geklappt. Probier es nochmal, ne?');
       }
-
-      var payload = {
-        email: $('email').value.trim(),
-        whatsapp_optin: whatsapp ? whatsapp.checked : false,
-        phone: whatsapp && whatsapp.checked && phone ? phone.value.trim() : '',
-        privacy_optin: true,
-        submitted_at: new Date().toISOString()
-      };
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Moment…';
-
-      fetch(CFG.signupEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload)
-      })
-        .then(function (r) {
-          if (!r.ok) return Promise.reject(new Error('HTTP ' + r.status));
-          return r.json().catch(function () { return {}; });
-        })
-        .then(function (data) {
-          form.hidden = true;
-          show(successBox);
-
-          var num = Number(data && data.memberNumber);
-          if (isFinite(num) && num > 0 && numberBadge && numberText) {
-            numberBadge.textContent = '#' + num;
-            show(numberBadge);
-            show(numberText);
-          }
-          if (successBox && !reduceMotion) {
-            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        })
-        .catch(function (err) {
-          fail('Das hat grad nicht geklappt. Probier es nochmal, ne?');
-          console.error('SAARVICE: Anmeldung fehlgeschlagen', err);
-        })
-        .then(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'In die Gemeinde eintreten';
-        });
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel;
     });
   }
 

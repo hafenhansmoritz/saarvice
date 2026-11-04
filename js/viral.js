@@ -2291,22 +2291,9 @@
       });
     });
 
-    // 7. Promptgott Substack Lead-Gen Form & 14-Chapter Operator Manual Download
-    var pgForm = $('promptgott-form');
-    var pgSuccess = $('promptgott-success');
+    // 7. Promptgott Kompendium-Download (Substack nur noch als einfacher Link in jean.html,
+    //    keine E-Mail im Query-String)
     var pgDownload = $('pg-download-deck');
-    if (pgForm && pgSuccess) {
-      pgForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var emailEl = $('pg-email');
-        var emailVal = emailEl ? emailEl.value.trim() : '';
-        var subUrl = 'https://promptgott.substack.com/subscribe?utm_source=saarvice_jean_hub' + (emailVal ? '&email=' + encodeURIComponent(emailVal) : '');
-        window.open(subUrl, '_blank', 'noopener');
-        pgSuccess.hidden = false;
-        unlockStamp('pass');
-        ViralAudio.maggi();
-      });
-    }
     if (pgDownload) {
       pgDownload.addEventListener('click', function () {
         var md = [
