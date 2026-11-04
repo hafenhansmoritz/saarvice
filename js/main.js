@@ -389,7 +389,7 @@
    * ------------------------------------------------------------------ */
   function bookingAddress() {
     var c = window.SAARVICE_CONFIG && window.SAARVICE_CONFIG.contact;
-    return (c && c.booking) || 'booking@saarvice.de';
+    return (c && c.booking) || 'booking@saarvice.online';
   }
 
   /* Funnel: strukturierte Catering-Anfrage (ohne Backend, oeffnet Mail-Programm) */
@@ -476,7 +476,8 @@
         '• Saar-Dust Give-aways: ' + (merchAddon ? 'Ja (+4 €/P.)' : 'Nein') + '\n' +
         '• Mitternachts-Special Lyoner Smash: ' + (lyonerAddon ? 'Ja (+6 €/P.)' : 'Nein') + '\n' +
         '• Holzfass-Viez-Anstich: ' + (viezAddon ? 'Ja (+3 €/P.)' : 'Nein') + '\n' +
-        '• Geschätztes Investitionsvolumen: ca. ' + finalTotal.toLocaleString('de-DE') + ' € netto (' + perPerson + ' € / Kopf)\n';
+        '• Unverbindlicher Richtwert (ab-Preis): ca. ' + finalTotal.toLocaleString('de-DE') + ' € netto (' + perPerson + ' € / Kopf)\n' +
+        '  (kein Angebot – verbindliches Angebot binnen 48 Stunden)\n';
 
       window.__saarviceCateringSummary = summaryText;
 

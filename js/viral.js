@@ -2158,7 +2158,7 @@
         '3. **Tage 46–90 (Merchant Brain & Conversion Loop):** Dynamisches EPC-/Conversion-Routing, interaktive Lead-Rechner und Index-Swarm-Optimierung.',
         '',
         '## DIREKTKONTAKT ZU JEAN MAURICE PORT',
-        '- **E-Mail:** hallo@saarvice.de',
+        '- **E-Mail:** hallo@saarvice.online',
         '- **Promptgott Substack:** https://promptgott.substack.com/',
         '- **KI-Verzeichnisse & Launch-Service:** https://jmp-collab.github.io/ai-directories/'
       ].join('\n');
@@ -2196,7 +2196,7 @@
         if (mainLeadActions) {
           var llmPrompt = 'Ich plane mit Jean Maurice Port folgendes Projekt: Schwerpunkt "' + selectedLeadTopic + '", Website "' + (url || 'unser Shop/SaaS') + '", Ziel-Potenzial ' + upliftTxt + '. Erstelle mir zur Vorbereitung auf unser Kickoff-Gespräch die 10 wichtigsten technischen Audit-Fragen und Quick-Wins.';
           mainLeadActions.innerHTML =
-            '<a href="mailto:hallo@saarvice.de?subject=' + mailSubj + '&body=' + mailBody + '" class="llm-btn llm-btn--copy">📧 Jetzt als E-Mail an Jean absenden ↗</a>' +
+            '<a href="mailto:hallo@saarvice.online?subject=' + mailSubj + '&body=' + mailBody + '" class="llm-btn llm-btn--copy">📧 Jetzt als E-Mail an Jean absenden ↗</a>' +
             buildLlmActionButtonsHtml(llmPrompt);
           wireLlmButtonEvents(mainLeadActions);
         }
@@ -2598,7 +2598,7 @@
         if (stickyFeedback) stickyFeedback.hidden = false;
         ViralAudio.maggi();
         showViralToast('📬 Anfrage vorbereitet — E-Mail-Programm öffnet sich!');
-        window.location.href = 'mailto:hallo@saarvice.de?subject=' + encodeURIComponent('Schnell-Anfrage: ' + intent + ' (' + name + ')') + '&body=' + encodeURIComponent(bodyTxt);
+        window.location.href = 'mailto:hallo@saarvice.online?subject=' + encodeURIComponent('Schnell-Anfrage: ' + intent + ' (' + name + ')') + '&body=' + encodeURIComponent(bodyTxt);
       });
     }
 
