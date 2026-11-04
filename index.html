@@ -1158,49 +1158,12 @@
 
         <!-- Waiting List Signup Form -->
         <p role="note" style="margin:0 0 12px;padding:8px 12px;border-left:3px solid currentColor;font-size:14px">Demo-Formular eines fiktiven Fallbeispiels: Es wird nichts bestellt und kein Angebot erstellt.</p>
-<form class="waitlist-form" id="waitlist-form" method="POST" action="https://3365dee0.sibforms.com/serve/MUIFANLj0omPidLAH8ocwJ3PtPPax7vAWAVckUQjI5UfVM4JpxVeuldOicjHolrXx_uLfDXcOA9p2X-Cv1mvY_ILS7nD8Y-xxy-dOWbi4UPK-hekEnkrEUgAAsFFLMLdC2alspsCtAdyx8i4ubCoZnS077txxUK5uPVYEp8_1tlH5kZX9t26jgVA_HysZIvZrYdXkQJ_ytucnjMYvQ==" target="_blank" style="max-width: 560px; margin: 0 auto;">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-            <div class="form-group">
-              <label for="member-custom-name">Name für die Pass-Vorschau (bleibt in deinem Browser)</label>
-              <input type="text" id="member-custom-name" class="input-field" placeholder="z.B. Jean aus SB" autocomplete="given-name">
-            </div>
-            <div class="form-group">
-              <label for="email">E-Mail-Adresse (Pflicht)</label>
-              <input type="email" id="email" name="EMAIL" class="input-field" placeholder="deine@mail.de"
-                     required autocomplete="email" aria-describedby="email-error">
-              <p class="field-error" id="email-error" role="alert" hidden></p>
-            </div>
-          </div>
-
-          <label class="checkbox-group" id="consent-label">
-            <input type="checkbox" id="privacy-optin" required aria-describedby="privacy-error">
-            <span>
-              Ja, schickt mir per E-Mail Infos zu den Drops. Der Versand läuft über Brevo; ich bekomme erst eine Mail
-              mit Bestätigungslink (Double-Opt-in). Die <a href="datenschutz.html#newsletter">Datenschutzerklärung</a>
-              habe ich gelesen. Abmelden geht jederzeit über den Link in jeder Mail.
-            </span>
-          </label>
-          <p class="field-error" id="privacy-error" role="alert" hidden></p>
-
-          <div class="hp-field" aria-hidden="true">
-            <label for="email_address_check">Bitte leer lassen</label>
-            <input type="text" id="email_address_check" name="email_address_check" value="" tabindex="-1" autocomplete="off">
-          </div>
-          <input type="hidden" name="locale" value="de">
-          <input type="hidden" name="html_type" value="simple">
-
-          <button type="submit" class="form-button" id="submit-waitlist-btn">In die Gemeinde eintreten</button>
-          <p class="form-error" id="form-error" role="alert" hidden></p>
-        </form>
+        <p class="waitlist-hinweis" style="max-width: 560px; margin: 0 auto; text-align: center;">
+          SAARVICE ist ein fiktives Schulungs-Fallbeispiel. Deshalb gibt es hier keine echte Anmeldung,
+          und es werden keine E-Mail-Adressen gesammelt.
+        </p>
 
         <!-- Double Opt-In / Instant Pass Success State -->
-        <div class="success-message" id="waitlist-success" hidden>
-          <h3 class="success-title">Fast geschafft!</h3>
-          <p class="success-text" id="waitlist-success-desc">
-            Im neuen Tab siehst du, ob Brevo deine Anmeldung angenommen hat. Dann kommt eine Mail mit Bestätigungslink,
-            erst nach dem Klick bist du in der Gemeinde. Keine Mail da? Schau kurz im Spam-Ordner nach oder probier es hier nochmal.
-          </p>
-        </div>
 
         <!-- 3D Virtual Wallet Pass Showcase (#048, #077) -->
         <div class="wallet-pass-showcase">
