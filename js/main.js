@@ -167,6 +167,9 @@
   function initForm() {
     var form = $('waitlist-form');
     if (!form) return;
+    // Mit JS prüft validate() mit eigenen Meldungen; ohne JS greift die native Browser-Prüfung
+    // (required an E-Mail und Einwilligung), deshalb steht novalidate nicht im HTML.
+    form.noValidate = true;
 
     var successBox = $('waitlist-success');
     var formError = $('form-error');
@@ -245,33 +248,17 @@
         return;
       }
 
-      var body = new URLSearchParams();
-      body.append('EMAIL', $('email').value.trim());
-      body.append('email_address_check', '');
-      body.append('locale', 'de');
-      body.append('html_type', 'simple');
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Moment…';
-
-      // no-cors: Die Antwort ist nicht lesbar. fetch scheitert nur bei Netzwerkfehlern
-      // (Adblocker, offline); dann normal im neuen Tab abschicken.
-      fetch(form.action, { method: 'POST', mode: 'no-cors', body: body })
-        .then(function () {
-          showSuccess();
-        })
-        .catch(function () {
-          try {
-            form.submit();
-            fail('Wir haben die Anmeldung in einem neuen Tab geöffnet. Falls nichts passiert ist, probier es bitte nochmal.');
-          } catch (err) {
-            fail('Das hat grad nicht geklappt. Probier es nochmal, ne?');
-          }
-        })
-        .then(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = submitLabel;
-        });
+      // Normal an Brevo abschicken (target=_blank): Brevos Antwortseite zeigt im neuen Tab,
+      // ob die Anmeldung angenommen wurde. Ein fetch mit no-cors könnte Ablehnungen nicht
+      // erkennen. Das Formular bleibt sichtbar, damit man es bei einem Fehler erneut versuchen kann.
+      try {
+        form.submit();
+        show(successBox);
+      } catch (err) {
+        fail('Das hat grad nicht geklappt. Probier es nochmal, ne?');
+      }
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitLabel;
     });
   }
 
