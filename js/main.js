@@ -276,7 +276,7 @@
         var refInput = $('referral-link-input');
         if (walletNum) walletNum.textContent = '#' + demoCode;
         if (walletHolder) walletHolder.textContent = 'Inhaber: ' + customName;
-        if (refInput) refInput.value = 'https://saarvice.de/?ref=' + demoCode;
+        if (refInput) refInput.value = 'https://schwenken.saarvice.online/?ref=' + demoCode;
         SoundEngine.playGrubenHorn();
         if (successBox && !reduceMotion) {
           successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
