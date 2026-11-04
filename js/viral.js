@@ -593,7 +593,7 @@
     if (maggiWaBtn) {
       maggiWaBtn.addEventListener('click', function () {
         var p = promilleEl ? promilleEl.textContent : '1,8 ‰ Mg+';
-        var txt = '💧 Mein offizieller Maggi-Blutwert an der SAARVICE-Tankstelle liegt heute bei ' + p + ' (Blutgruppe: Maggi Positiv)! Prüf deinen Pegel auf https://saarvice.de/#speisen';
+        var txt = '💧 Mein offizieller Maggi-Blutwert an der SAARVICE-Tankstelle liegt heute bei ' + p + ' (Blutgruppe: Maggi Positiv)! Prüf deinen Pegel auf https://saarvice.online/#speisen';
         window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank', 'noopener');
       });
     }
@@ -654,7 +654,7 @@
     if ($('share-flaeche-btn')) {
       $('share-flaeche-btn').addEventListener('click', function () {
         var s = $('res-sandos') ? $('res-sandos').textContent : '180 Mrd. Stk.';
-        var msg = '📐 Wusstest du schon? Im offiziellen SAARVICE Flächenmaß-Rechner entspricht das genau ' + s + ' Schwenker Katsu Sandos! 😂 Rechne selbst nach: https://saarvice.de/#kultur-labor';
+        var msg = '📐 Wusstest du schon? Im offiziellen SAARVICE Flächenmaß-Rechner entspricht das genau ' + s + ' Schwenker Katsu Sandos! 😂 Rechne selbst nach: https://saarvice.online/#kultur-labor';
         window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       });
     }
@@ -680,7 +680,7 @@
     if ($('jkj-share-btn')) {
       $('jkj-share-btn').addEventListener('click', function () {
         var txt = jkjOut ? jkjOut.textContent : 'Im Saarland kennt jeder jeden über 1,4 Ecken!';
-        window.open('https://wa.me/?text=' + encodeURIComponent(txt + ' — Test auf https://saarvice.de/#kultur-labor'), '_blank', 'noopener');
+        window.open('https://wa.me/?text=' + encodeURIComponent(txt + ' — Test auf https://saarvice.online/#kultur-labor'), '_blank', 'noopener');
       });
     }
 
@@ -704,7 +704,7 @@
     if ($('sin-share-btn')) {
       $('sin-share-btn').addEventListener('click', function () {
         var verdict = sinBox ? sinBox.textContent : 'Gasgrill-Bußgeldbescheid';
-        window.open('https://wa.me/?text=' + encodeURIComponent('🔥 ' + verdict + ' -> Zum Gasgrill-Beichtstuhl: https://saarvice.de/#kultur-labor'), '_blank', 'noopener');
+        window.open('https://wa.me/?text=' + encodeURIComponent('🔥 ' + verdict + ' -> Zum Gasgrill-Beichtstuhl: https://saarvice.online/#kultur-labor'), '_blank', 'noopener');
       });
     }
 
@@ -813,7 +813,7 @@
 
     if ($('kreis-wa-mobilize-btn')) {
       $('kreis-wa-mobilize-btn').addEventListener('click', function () {
-        var msg = '🚨 Ei Leut, wir können doch net zulassen, dass die anneren unseren Landkreis beim SAARVICE Drop #001 schlagen! Stimmt jetzt mit 1 Klick für [' + lastVotedKreis + '] ab: https://saarvice.de/#landkreis-battle';
+        var msg = '🚨 Ei Leut, wir können doch net zulassen, dass die anneren unseren Landkreis beim SAARVICE Drop #001 schlagen! Stimmt jetzt mit 1 Klick für [' + lastVotedKreis + '] ab: https://saarvice.online/#landkreis-battle';
         window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       });
     }
@@ -1019,7 +1019,7 @@
     if ($('share-cert-wa-btn')) {
       $('share-cert-wa-btn').addEventListener('click', function () {
         var n = ($('cert-name-input') && $('cert-name-input').value.trim()) || 'Ich';
-        var msg = '🪪 Amtlich bestätigt: ' + n + ' hat den offiziellen SAARVICE Schwenker-Führerschein (Klasse S: Dreibein & Buchenglut) bestanden! Mach jetzt deine Prüfung auf https://saarvice.de/#viral-arena';
+        var msg = '🪪 Amtlich bestätigt: ' + n + ' hat den offiziellen SAARVICE Schwenker-Führerschein (Klasse S: Dreibein & Buchenglut) bestanden! Mach jetzt deine Prüfung auf https://saarvice.online/#viral-arena';
         window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       });
     }
@@ -1043,7 +1043,7 @@
       $('share-gazette-wa-btn').addEventListener('click', function () {
         var n = ($('gazette-name-input') && $('gazette-name-input').value.trim()) || 'Jean';
         var t = ($('gazette-town-input') && $('gazette-town-input').value.trim()) || 'Saarbrücken';
-        var msg = '📰 EXTRABLATT DER SAARVICE GAZETTE: ' + n + ' sorgt für kulinarischen Ausnahmezustand in ' + t + '! Druck deine eigene Schlagzeile: https://saarvice.de/#viral-arena';
+        var msg = '📰 EXTRABLATT DER SAARVICE GAZETTE: ' + n + ' sorgt für kulinarischen Ausnahmezustand in ' + t + '! Druck deine eigene Schlagzeile: https://saarvice.online/#viral-arena';
         window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       });
     }
@@ -1092,7 +1092,7 @@
           'PRODID:-//SAARVICE//Drop #001//DE',
           'BEGIN:VEVENT',
           'SUMMARY:🔥 SAARVICE Drop #001 — GPS-Alarm & Schwenker Katsu Sando',
-          'DESCRIPTION:Hauptsach gudd. Awwer annersch. Prüfe deinen Stammtisch-Pass auf https://saarvice.de für die exakten Koordinaten!',
+          'DESCRIPTION:Hauptsach gudd. Awwer annersch. Prüfe deinen Stammtisch-Pass auf https://saarvice.online für die exakten Koordinaten!',
           'LOCATION:Saarbrücken / Saarland (Geheimer Drop-Standort)',
           'DTSTART:20261114T100000Z',
           'DTEND:20261114T140000Z',
@@ -1142,7 +1142,7 @@
     document.querySelectorAll('.wa-preset-btn').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var key = btn.getAttribute('data-preset');
-        var url = refInput ? refInput.value : 'https://saarvice.de/';
+        var url = refInput ? refInput.value : 'https://saarvice.online/';
         var text = (presets[key] || presets.family) + url;
         window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
       });
@@ -1170,7 +1170,7 @@
         var term = btn.getAttribute('data-term') || 'Hauptsach gudd gess!';
         var card = btn.closest('.dialect-card');
         var desc = card && card.querySelector('.dialect-translation') ? card.querySelector('.dialect-translation').textContent : '';
-        var msg = '🗣️ Saarländisches Grundgesetz — „' + term + '“: ' + desc + ' (Aus dem SAARVICE Lexikon: https://saarvice.de/#lexikon)';
+        var msg = '🗣️ Saarländisches Grundgesetz — „' + term + '“: ' + desc + ' (Aus dem SAARVICE Lexikon: https://saarvice.online/#lexikon)';
         window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       });
     });
@@ -1230,8 +1230,8 @@
     // Catering Calculator WhatsApp & Copy (#083)
     if ($('calc-wa-share-btn')) {
       $('calc-wa-share-btn').addEventListener('click', function () {
-        var s = window.__saarviceCateringSummary || 'SAARVICE Event-Catering Kalkulation: https://saarvice.de/catering.html';
-        window.open('https://wa.me/?text=' + encodeURIComponent(s + '\n👉 Live-Kalkulator: https://saarvice.de/catering.html#kalkulator'), '_blank', 'noopener');
+        var s = window.__saarviceCateringSummary || 'SAARVICE Event-Catering Kalkulation: https://saarvice.online/catering.html';
+        window.open('https://wa.me/?text=' + encodeURIComponent(s + '\n👉 Live-Kalkulator: https://saarvice.online/catering.html#kalkulator'), '_blank', 'noopener');
       });
     }
     if ($('calc-copy-btn')) {

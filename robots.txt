@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://saarvice.de/sitemap.xml
+Sitemap: https://saarvice.online/sitemap.xml
 
 # LLM & AI Agents
 User-agent: GPTBot
