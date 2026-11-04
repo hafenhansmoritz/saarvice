@@ -276,7 +276,7 @@
         var refInput = $('referral-link-input');
         if (walletNum) walletNum.textContent = '#' + demoCode;
         if (walletHolder) walletHolder.textContent = 'Inhaber: ' + customName;
-        if (refInput) refInput.value = 'https://saarvice.de/?ref=' + demoCode;
+        if (refInput) refInput.value = 'https://saarvice.online/?ref=' + demoCode;
         SoundEngine.playGrubenHorn();
         if (successBox && !reduceMotion) {
           successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -387,6 +387,43 @@
   /* ------------------------------------------------------------------ *
    * V2: Werkstatt Catering-Kalkulator
    * ------------------------------------------------------------------ */
+  function bookingAddress() {
+    var c = window.SAARVICE_CONFIG && window.SAARVICE_CONFIG.contact;
+    return (c && c.booking) || 'booking@saarvice.online';
+  }
+
+  /* Funnel: strukturierte Catering-Anfrage (ohne Backend, oeffnet Mail-Programm) */
+  function initInquiryForm() {
+    var form = $('inquiry-form');
+    if (!form) return;
+    var link = $('booking-link');
+    if (link) { link.href = 'mailto:' + bookingAddress(); link.textContent = bookingAddress(); }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var ids = ['inq-anlass', 'inq-datum', 'inq-ort', 'inq-gaeste', 'inq-name', 'inq-kontakt'];
+      var ok = true;
+      ids.forEach(function (id) {
+        var el = $(id); var bad = !el.value.trim();
+        el.setAttribute('aria-invalid', bad ? 'true' : 'false');
+        if (bad) ok = false;
+      });
+      $('inquiry-error').hidden = ok;
+      if (!ok) return;
+      var v = function (id) { return $(id).value.trim(); };
+      var body = 'Gude SAARVICE-Team,\n\nwir möchten euch für ein Event anfragen:\n' +
+        '• Anlass: ' + v('inq-anlass') + '\n' +
+        '• Wunschdatum: ' + v('inq-datum') + '\n' +
+        '• Ort / PLZ: ' + v('inq-ort') + '\n' +
+        '• Gäste (ca.): ' + v('inq-gaeste') + '\n' +
+        '• Name: ' + v('inq-name') + '\n' +
+        '• Rückruf / Kontakt: ' + v('inq-kontakt') + '\n';
+      if (v('inq-nachricht')) body += '\nWünsche:\n' + v('inq-nachricht') + '\n';
+      if ($('inq-calc').checked && window.__saarviceCateringSummary) body += '\n--- Kalkulation ---\n' + window.__saarviceCateringSummary;
+      var subject = 'Catering-Anfrage: ' + v('inq-anlass') + ', ' + v('inq-datum') + ', ' + v('inq-gaeste') + ' Gäste';
+      window.location.href = 'mailto:' + bookingAddress() + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    });
+  }
+
   function initCateringCalc() {
     var guestsInput = $('calc-guests');
     var guestsVal = $('calc-guests-val');
@@ -439,7 +476,8 @@
         '• Saar-Dust Give-aways: ' + (merchAddon ? 'Ja (+4 €/P.)' : 'Nein') + '\n' +
         '• Mitternachts-Special Lyoner Smash: ' + (lyonerAddon ? 'Ja (+6 €/P.)' : 'Nein') + '\n' +
         '• Holzfass-Viez-Anstich: ' + (viezAddon ? 'Ja (+3 €/P.)' : 'Nein') + '\n' +
-        '• Geschätztes Investitionsvolumen: ca. ' + finalTotal.toLocaleString('de-DE') + ' € netto (' + perPerson + ' € / Kopf)\n';
+        '• Unverbindlicher Richtwert (ab-Preis): ca. ' + finalTotal.toLocaleString('de-DE') + ' € netto (' + perPerson + ' € / Kopf)\n' +
+        '  (kein Angebot – verbindliches Angebot binnen 48 Stunden)\n';
 
       window.__saarviceCateringSummary = summaryText;
 
@@ -452,7 +490,7 @@
           'Ansprechpartner & Telefon: \n\n' +
           'Bitte meldet euch bei uns für die Abstimmung!'
         );
-        inquiryBtn.href = 'mailto:booking@saarvice.de?subject=' + subject + '&body=' + body;
+        inquiryBtn.href = 'mailto:' + bookingAddress() + '?subject=' + subject + '&body=' + body;
       }
     }
 
@@ -943,6 +981,7 @@
     initForm();
     initConsent();
     initCateringCalc();
+    initInquiryForm();
     initMenuFilter();
     initEmberCanvas();
     initSchwenkerCockpit();

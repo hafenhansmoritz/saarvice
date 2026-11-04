@@ -7,13 +7,13 @@
   <title>Buchen — SAARVICE Werkstatt &amp; Event-Catering</title>
   <meta name="description" content="SAARVICE für Firmenfeier, Hochzeit, Richtfest oder Vereinsfest buchen. Live-Kalkulator, Stellplatz-Prüfer und sofortiges Festpreis-Angebot.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://saarvice.de/catering.html">
+  <link rel="canonical" href="https://saarvice.online/catering.html">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://saarvice.de/catering.html">
+  <meta property="og:url" content="https://saarvice.online/catering.html">
   <meta property="og:title" content="Buchen — SAARVICE Werkstatt">
   <meta property="og:description" content="Wenn der Schwenker passt und das Bier kalt ist, reden wir drüber.">
-  <meta property="og:image" content="https://saarvice.de/assets/images/rezept_poster.webp">
+  <meta property="og:image" content="https://saarvice.online/assets/images/rezept_poster.webp">
 
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="css/style.css">
@@ -67,6 +67,7 @@
         Firmenfeier, Sommerfest, Hochzeit, Richtfest oder Vereinsjubiläum. Wir rollen mit dem mobilen Schwenk-Cube an
         und kochen live vor euren Gästen. Hauptsach gudd. Awwer mit Stil.
       </p>
+      <p><a href="#anfrage" class="cta-button" id="catering-top-cta">Unverbindlich anfragen</a></p>
     </div>
 
     <div class="page-body">
@@ -79,6 +80,7 @@
       </p>
 
       <h2>Die drei V2 Catering-Pakete</h2>
+      <p class="price-disclaimer"><strong>Unverbindliche Richtwerte (ab-Preise).</strong> Der endgültige Preis hängt von Datum, Ort, Gästezahl und Auswahl ab. Verbindliches Angebot binnen 48 Stunden.</p>
 
       <div class="tier-grid">
         <div class="tier-card">
@@ -173,10 +175,11 @@
 
           <div style="background: rgba(13, 12, 10, 0.75); border: 1px solid var(--c-border); padding: 1.5rem; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(242, 234, 218, 0.6);">Geschätzte Investition</span>
+              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(242, 234, 218, 0.6);">Unverbindlicher Richtwert (ab-Preis)</span>
               <div style="font-family: var(--f-display); font-size: 2.5rem; color: var(--c-gold); margin: 0.5rem 0;" id="calc-total-price">2.450 €</div>
               <p style="font-size: 0.85rem; color: rgba(242, 234, 218, 0.7); margin-bottom: 1rem;">
                 Entspricht <strong id="calc-per-person-price" style="color: var(--c-gold);">30,63 € pro Kopf</strong> netto (inkl. Küchencrew, Auf- &amp; Abbau)
+                <br><span class="price-disclaimer-small">Unverbindlicher Richtwert, kein Angebot. Verbindliches Angebot binnen 48 Stunden.</span>
               </p>
               
               <div style="border-top: 1px solid var(--c-border); padding-top: 1rem; font-size: 0.9rem; line-height: 1.6;">
@@ -187,7 +190,7 @@
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem;">
-              <a href="mailto:booking@saarvice.de" class="cta-button" id="calc-inquiry-btn" style="text-align: center;">Angebot per E-Mail anfordern</a>
+              <a href="mailto:booking@saarvice.online" class="cta-button" id="calc-inquiry-btn" style="text-align: center;">Angebot per E-Mail anfordern</a>
               <button type="button" class="wa-share-btn" id="calc-wa-share-btn">📲 Kalkulation per WhatsApp ans Orga-Team schicke</button>
               <button type="button" class="oma-stamp-btn" id="calc-copy-btn">📋 Kalkulation für Chef / Vorstand kopieren</button>
             </div>
@@ -222,14 +225,29 @@
         </div>
       </div>
 
-      <h2>Direkt anfragen</h2>
+      <h2 id="anfrage">Direkt anfragen</h2>
       <p>
         Schreibt uns Datum, Ort, geschätzte Personenzahl und eure Wunsch-Kombination. Wir erstellen euch
-        innerhalb von 48 Stunden ein transparentes Festpreis-Angebot.
+        binnen 48 Stunden ein verbindliches Festpreis-Angebot. Alle Preise auf dieser Seite sind unverbindliche Richtwerte (ab-Preise).
       </p>
-      <p>
-        <a href="mailto:booking@saarvice.de" class="cta-button" id="booking-link">Catering anfragen (booking@saarvice.de)</a>
-      </p>
+      <form class="inquiry-form" id="inquiry-form" novalidate>
+        <div class="inquiry-grid">
+          <div class="form-group"><label for="inq-anlass">Anlass *</label>
+            <select id="inq-anlass" class="input-field" required>
+              <option value="">Bitte wählen</option><option>Firmenfeier / Sommerfest</option><option>Hochzeit</option><option>Geburtstag / Privatfeier</option><option>Vereinsfest / Kerwe</option><option>Festival / Großevent</option><option>Sonstiges</option>
+            </select></div>
+          <div class="form-group"><label for="inq-datum">Wunschdatum *</label><input type="date" id="inq-datum" class="input-field" required></div>
+          <div class="form-group"><label for="inq-ort">Ort / PLZ *</label><input type="text" id="inq-ort" class="input-field" required></div>
+          <div class="form-group"><label for="inq-gaeste">Gäste (ca.) *</label><input type="number" id="inq-gaeste" class="input-field" min="1" inputmode="numeric" required></div>
+          <div class="form-group"><label for="inq-name">Name *</label><input type="text" id="inq-name" class="input-field" autocomplete="name" required></div>
+          <div class="form-group"><label for="inq-kontakt">Telefon oder E-Mail *</label><input type="text" id="inq-kontakt" class="input-field" required></div>
+        </div>
+        <div class="form-group"><label for="inq-nachricht">Wünsche (optional)</label><textarea id="inq-nachricht" class="input-field" rows="3"></textarea></div>
+        <label class="checkbox-group"><input type="checkbox" id="inq-calc"> <span>Meine Kalkulation von oben mitschicken</span></label>
+        <p class="inquiry-error" id="inquiry-error" role="alert" hidden>Bitte füllt alle Pflichtfelder (*) aus.</p>
+        <button type="submit" class="cta-button" id="inquiry-submit">Anfrage per E-Mail öffnen</button>
+        <p class="inquiry-note">Der Button öffnet euer E-Mail-Programm mit einer fertig ausgefüllten Nachricht an <a href="mailto:booking@saarvice.online" id="booking-link">booking@saarvice.online</a>. Es wird nichts automatisch übertragen.</p>
+      </form>
 
     </div>
 
@@ -253,6 +271,7 @@
         <span>|</span>
         <a href="datenschutz.html">Datenschutz</a>
       </div>
+      <p class="footer-dev"><a href="https://me.developers.google.com/u/portai" target="_blank" rel="me noopener">Google Developer Profil</a></p>
       <p class="footer-copy">© 2026 SAARVICE. Alle Rechte vorbehalten, gell?</p>
     </div>
   </footer>

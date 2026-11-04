@@ -5569,4 +5569,30 @@ nav a.active,
   cursor: pointer;
 }
 
+/* === feat/autopilot-funnel: Anfrageweg & Footer === */
+.footer-dev { margin: 0.5rem 0; font-size: 0.85rem; }
+.footer-dev a { color: inherit; text-decoration: underline; }
+.inquiry-form { background: var(--c-card-bg); border: 1px solid var(--c-gold); padding: 1.5rem; border-radius: 4px; margin: 1.5rem 0 3rem; scroll-margin-top: 90px; }
+.inquiry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 0 1.25rem; }
+.inquiry-form .input-field { width: 100%; box-sizing: border-box; min-height: 44px; }
+.inquiry-form .input-field[aria-invalid="true"] { border-color: #d94f3d; }
+.inquiry-error { color: #f87171; font-weight: 700; }
+.inquiry-note { font-size: 0.85rem; opacity: 0.8; margin-top: 0.75rem; overflow-wrap: anywhere; }
+#anfrage { scroll-margin-top: 90px; }
+.mobile-inquiry-bar { display: none; }
+@media (max-width: 768px) {
+  .mobile-inquiry-bar { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; padding: 0.9rem 1rem calc(0.9rem + env(safe-area-inset-bottom)); text-align: center; background: var(--c-gold, #e3b23c); color: #0d0c0a; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; box-shadow: 0 -4px 16px rgba(0,0,0,0.4); }
+  body { padding-bottom: 3.5rem; }
+  body:has(.mobile-inquiry-bar) .sound-toggle-btn { bottom: 5rem; }
+  body:has(.mobile-inquiry-bar) .jean-floating-dock { bottom: 9.9rem !important; }
+}
+/* Mobil-Ueberlauf: Footer-Socials umbrechen statt 497px Breite */
+.footer-socials { flex-wrap: wrap; justify-content: center; row-gap: 0.4rem; }
 
+/* Catering: Preise als unverbindliche Richtwerte kennzeichnen */
+.price-disclaimer { border-left: 3px solid var(--c-gold); padding: 0.6rem 0.9rem; margin: 0.5rem 0 1.5rem; background: rgba(227,178,60,0.08); }
+.price-disclaimer-small { display: inline-block; margin-top: 0.35rem; font-size: 0.8rem; opacity: 0.85; }
+/* Jean-/KI-Dock mobil ausblenden (Desktop bleibt) */
+@media (max-width: 767.98px) {
+  .jean-floating-dock { display: none !important; }
+}
