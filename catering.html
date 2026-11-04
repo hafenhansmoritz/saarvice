@@ -80,6 +80,7 @@
       </p>
 
       <h2>Die drei V2 Catering-Pakete</h2>
+      <p class="price-disclaimer"><strong>Unverbindliche Richtwerte (ab-Preise).</strong> Der endgültige Preis hängt von Datum, Ort, Gästezahl und Auswahl ab. Verbindliches Angebot binnen 48 Stunden.</p>
 
       <div class="tier-grid">
         <div class="tier-card">
@@ -174,10 +175,11 @@
 
           <div style="background: rgba(13, 12, 10, 0.75); border: 1px solid var(--c-border); padding: 1.5rem; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
-              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(242, 234, 218, 0.6);">Geschätzte Investition</span>
+              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(242, 234, 218, 0.6);">Unverbindlicher Richtwert (ab-Preis)</span>
               <div style="font-family: var(--f-display); font-size: 2.5rem; color: var(--c-gold); margin: 0.5rem 0;" id="calc-total-price">2.450 €</div>
               <p style="font-size: 0.85rem; color: rgba(242, 234, 218, 0.7); margin-bottom: 1rem;">
                 Entspricht <strong id="calc-per-person-price" style="color: var(--c-gold);">30,63 € pro Kopf</strong> netto (inkl. Küchencrew, Auf- &amp; Abbau)
+                <br><span class="price-disclaimer-small">Unverbindlicher Richtwert, kein Angebot. Verbindliches Angebot binnen 48 Stunden.</span>
               </p>
               
               <div style="border-top: 1px solid var(--c-border); padding-top: 1rem; font-size: 0.9rem; line-height: 1.6;">
@@ -188,7 +190,7 @@
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem;">
-              <a href="mailto:booking@saarvice.de" class="cta-button" id="calc-inquiry-btn" style="text-align: center;">Angebot per E-Mail anfordern</a>
+              <a href="mailto:booking@saarvice.online" class="cta-button" id="calc-inquiry-btn" style="text-align: center;">Angebot per E-Mail anfordern</a>
               <button type="button" class="wa-share-btn" id="calc-wa-share-btn">📲 Kalkulation per WhatsApp ans Orga-Team schicke</button>
               <button type="button" class="oma-stamp-btn" id="calc-copy-btn">📋 Kalkulation für Chef / Vorstand kopieren</button>
             </div>
@@ -226,7 +228,7 @@
       <h2 id="anfrage">Direkt anfragen</h2>
       <p>
         Schreibt uns Datum, Ort, geschätzte Personenzahl und eure Wunsch-Kombination. Wir erstellen euch
-        innerhalb von 48 Stunden ein transparentes Festpreis-Angebot.
+        binnen 48 Stunden ein verbindliches Festpreis-Angebot. Alle Preise auf dieser Seite sind unverbindliche Richtwerte (ab-Preise).
       </p>
       <form class="inquiry-form" id="inquiry-form" novalidate>
         <div class="inquiry-grid">
@@ -244,7 +246,7 @@
         <label class="checkbox-group"><input type="checkbox" id="inq-calc"> <span>Meine Kalkulation von oben mitschicken</span></label>
         <p class="inquiry-error" id="inquiry-error" role="alert" hidden>Bitte füllt alle Pflichtfelder (*) aus.</p>
         <button type="submit" class="cta-button" id="inquiry-submit">Anfrage per E-Mail öffnen</button>
-        <p class="inquiry-note">Der Button öffnet euer E-Mail-Programm mit einer fertig ausgefüllten Nachricht an <a href="mailto:booking@saarvice.de" id="booking-link">booking@saarvice.de</a>. Es wird nichts automatisch übertragen.</p>
+        <p class="inquiry-note">Der Button öffnet euer E-Mail-Programm mit einer fertig ausgefüllten Nachricht an <a href="mailto:booking@saarvice.online" id="booking-link">booking@saarvice.online</a>. Es wird nichts automatisch übertragen.</p>
       </form>
 
     </div>

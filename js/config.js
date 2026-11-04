@@ -13,7 +13,7 @@ window.SAARVICE_CONFIG = {
     options: {}
   },
   contact: {
-    booking: 'booking@saarvice.de',
-    press: 'presse@saarvice.de'
+    booking: 'booking@saarvice.online',
+    press: 'presse@saarvice.online'
   }
 };

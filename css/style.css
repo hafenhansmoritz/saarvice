@@ -5588,3 +5588,11 @@ nav a.active,
 }
 /* Mobil-Ueberlauf: Footer-Socials umbrechen statt 497px Breite */
 .footer-socials { flex-wrap: wrap; justify-content: center; row-gap: 0.4rem; }
+
+/* Catering: Preise als unverbindliche Richtwerte kennzeichnen */
+.price-disclaimer { border-left: 3px solid var(--c-gold); padding: 0.6rem 0.9rem; margin: 0.5rem 0 1.5rem; background: rgba(227,178,60,0.08); }
+.price-disclaimer-small { display: inline-block; margin-top: 0.35rem; font-size: 0.8rem; opacity: 0.85; }
+/* Jean-/KI-Dock mobil ausblenden (Desktop bleibt) */
+@media (max-width: 767.98px) {
+  .jean-floating-dock { display: none !important; }
+}
