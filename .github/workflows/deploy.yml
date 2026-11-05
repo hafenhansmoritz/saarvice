@@ -1,0 +1,30 @@
+# Autodeploy auf Cloudflare Pages (Projekt saarvice-schwenken, schwenken.saarvice.online).
+# Push auf main = Produktion, jeder andere Branch = Vorschau <branch>.saarvice-schwenken.pages.dev.
+# Repo-Secrets: CLOUDFLARE_API_TOKEN (Account > Cloudflare Pages > Edit), CLOUDFLARE_ACCOUNT_ID.
+name: Deploy schwenken.saarvice.online
+on:
+  push:
+  workflow_dispatch:
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Statische Dateien nach dist/ (ohne .git, Doku, Skripte)
+        run: |
+          mkdir dist
+          git ls-files | grep -vE '\.md$|^scripts/|^vercel\.json$|^\.' | xargs -d '\n' cp --parents -t dist
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx --yes wrangler@4 pages deploy dist --project-name saarvice-schwenken \
+            --branch "${GITHUB_REF_NAME}" --commit-hash "${GITHUB_SHA}" \
+            --commit-message "$(git log -1 --pretty=%s | head -c 80)"
